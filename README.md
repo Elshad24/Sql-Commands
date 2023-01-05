@@ -5,4 +5,4 @@
  #### 2. Sql Basic Functions (Aggregate Functions, Group by & Having Clause)
  #### 3. Joins & Set Operators
  #### 4. Constraints, DDL Operations & DML Statements with Subquery, Analytics Functions
-## Each groups has 2 part. First part is easy, second part is hard than first part.
+### The folders belong to one of each group. There are 2 txt files, one of the txt files is Questions, the other txt file is combining Questions and Answers in itself. Each group has 2 sections. The first part is easy, the second part is more difficult than the first part.
