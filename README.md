@@ -5,3 +5,4 @@
  #### 2. Sql Basic Functions (Aggregate Functions, Group by & Having Clause)
  #### 3. Joins & Set Operators
  #### 4. Constraints, DDL Operations & DML Statements with Subquery, Analytics Functions
+## Each groups has 2 part. First part is easy, second part is hard than first part.
