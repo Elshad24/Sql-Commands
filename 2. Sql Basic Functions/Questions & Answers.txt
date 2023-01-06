@@ -1,0 +1,137 @@
+# First Part:
+
+--1. Display employees who joined in the month of May.
+
+select * 
+from hr.employees
+where extract (month from hire_date) = 5;
+
+--2. Display employees who joined in the current year.
+
+select first_name,last_name,hire_date
+from hr.employees
+where extract(year from hire_date) = extract(year from sysdate);
+
+--3. Display the number of days between system date and 1st January 2011.
+
+select trunc(sysdate) - to_date('01-01-2011','dd-mm-yyyy') num_of_day_diff
+from dual;
+
+--4. Display maximum salary of employees.
+
+select max(salary) 
+from hr.employees;
+
+--5. Display number of employees in each department.
+
+select count(first_name) number_of_emp,department_id 
+from hr.employees
+group by department_id;
+
+--6. Display number of employees who joined after 15th of month.
+
+select count(*) number_of_employees
+from hr.employees
+where to_char(hire_date,'dd')>15;
+
+--7. Display average salary of employees in each department who have commission percentage.
+
+select department_id,round(avg(salary),2)
+from hr.employees
+where commission_pct is not null
+group by department_id;
+
+--8. Display job ID for jobs with average salary more than 10000.
+
+select job_id,round(avg(salary),2)
+from hr.employees
+group by job_id
+having avg(salary)>10000;
+
+--9. Display job ID, number of employees, sum of salary, and difference between the highest salary and the lowest salary of the employees for all jobs.
+
+select job_id,count(*) as number_of_emp,sum(salary),max(salary) - min(salary) difference_salary
+from hr.employees
+group by job_id;
+
+--10.Display manager ID and number of employees managed by the manager.
+
+select manager_id,count(*) number_of_emp
+from hr.employees
+group by manager_id;
+
+# Second Part
+
+--1. Show minimum, average and maximum salary in last 15 years according to job id:
+
+select min(salary),max(salary),round(avg(salary),2)
+from hr.employees
+where extract(year from sysdate) - extract(year from hire_date) < 15 
+order by job_id;
+
+--2. How many employees hired after 2005 for each department?
+
+select department_id,count(employee_id) num_of_emp 
+from hr.employees
+where extract(year from hire_date) > 2005
+group by department_id;
+
+--3. Write a query to show departments in which the difference between maximum and minimum salary is greater than 5000:
+
+select department_id,max(salary)-min(salary) diff_salary
+from hr.employees
+group by department_id
+having max(salary)-min(salary)>5000;
+
+--4. Display salaries of employees who has not commission pact according to departments (without using where):
+
+select department_id,sum(
+case when commission_pct is null then salary
+else 0 end) total_salary
+from hr.employees
+group by department_id;
+
+--5. How many people has job id with average salary between 3000 and 7000?
+
+select job_id,count(job_id) num_of_emp
+from hr.employees
+group by job_id
+having avg(salary) between 3000 and 7000;
+
+--6. Find number of employees with same name:
+
+select sum(count(first_name)) num_of_emp
+from hr.employees
+group by first_name
+having count (first_name) > 1;
+
+--7. How many people with the same phone code work in departments 50 and 90?
+
+select count(*) num_of_emp
+from hr.employees
+group by substr(phone_number,1,3),department_id
+having count(substr(phone_number,1,3))>1 and (department_id = 50 or department_id=90);
+
+--8. Display departments with average number of employees more than 5 in spring and autumn:
+
+select count(hire_date),department_id
+from hr.employees
+where (case
+when to_char(hire_date,'MON') in ('MAR','APR','MAY') then 'Spring'
+when to_char(hire_date,'MON') in ('SEP','OCT','NOV') then 'Autumn'
+else '0'
+end ) in ('Spring','Autumn')
+group by department_id
+having count(employee_id)>5;
+
+--9. How many employees work in departments which has maximum salary more than 5000?
+
+select department_id,count(employee_id) num_of_emp,avg(salary)
+from hr.employees
+group by department_id
+having max(salary)>5000;
+
+--10.Change second letter of employees’ names with the last letter and display:
+
+select first_name,substr(first_name,1,1)||''||substr(first_name,-1,1)||''||substr(first_name,3,length(first_name)-3)||''||substr(first_name,2,1)
+from hr.employees;

@@ -1,4 +1,4 @@
-First Part:
+# First Part:
 
 1. Display first name and last name as full name, salary, commission pct, and hire date for employees with salary less than 10000:
 2. Display city names (without repeated names) in ascending order from locations table:
@@ -10,7 +10,7 @@ First Part:
 8. Display employees where the first name and last name starts with S:
 9. Display the length of first name for employees where last name contain character ‘b’ after 3rd position:
 
-Second Part:
+# Second Part:
 
 1) Write a query in SQL to display job Title, the difference between minimum and maximum salaries for those jobs which max salary within the range 12000 to 18000:
 2) Display the details of the employees who have no commission percentage and whose salary is within the range 7000 to 12000 for those employees who are not working in the departments 50,30 and 80:

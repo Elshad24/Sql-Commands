@@ -1,0 +1,25 @@
+# First Part:
+
+1. Display employees who joined in the month of May.
+2. Display employees who joined in the current year.
+3. Display the number of days between system date and 1st January 2011.
+4. Display maximum salary of employees.
+5. Display number of employees in each department.
+6. Display number of employees who joined after 15th of month.
+7. Display average salary of employees in each department who have commission percentage.
+8. Display job ID for jobs with average salary more than 10000.
+9. Display job ID, number of employees, sum of salary, and difference between the highest salary and the lowest salary of the employees for all jobs.
+10.Display manager ID and number of employees managed by the manager.
+
+# Second Part:
+
+1. Show minimum, average and maximum salary in last 15 years according to job id:
+2. How many employees hired after 2005 for each department?
+3. Write a query to show departments in which the difference between maximum and minimum salary is greater than 5000:
+4. Display salaries of employees who has not commission pact according to departments (without using where):
+5. How many people has job id with average salary between 3000 and 7000?
+6. Find number of employees with same name:
+7. How many people with the same phone code work in departments 50 and 90?
+8. Display departments with average number of employees more than 5 in spring and autumn:
+9. How many employees work in departments which has maximum salary more than 5000?
+10.Change second letter of employees’ names with the last letter and display:

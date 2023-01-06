@@ -1,126 +1,126 @@
 # First Part:
-1. Display first name and last name as full name, salary, commission pct, and hire date for employees with salary less than 10000:
+--1. Display first name and last name as full name, salary, commission pct, and hire date for employees with salary less than 10000:
 
 select first_name||' '||last_name as "Full name",salary,commission_pct,hire_date 
 from hr.employees 
 where salary<10000 ;
 
-2. Display city names (without repeated names) in ascending order from locations table:
+--2. Display city names (without repeated names) in ascending order from locations table:
 
 select distinct city 
 from hr.locations 
 order by city asc ;
 
-3. Display the first name, hire date and job ID of the employees who is either IT Programmer or Sales Manager, and hired between 2002 and 2005:
+--3. Display the first name, hire date and job ID of the employees who is either IT Programmer or Sales Manager, and hired between 2002 and 2005:
 
 select first_name,hire_date,job_id 
 from hr.employees 
 where (JOB_ID='IT_PROG' or job_id='SA_MAN' )and hire_date between '01-JAN-02' and  '31-DEC-05';
 
-4. Display details from jobs table in the descending order of the job title:
+--4. Display details from jobs table in the descending order of the job title:
 
 select *
 from hr.jobs order by job_title desc;
 
-5. Display details of the employees where commission percentage is null and salary in the range 5000 to 10000 and department id in (30,50):
+--5. Display details of the employees where commission percentage is null and salary in the range 5000 to 10000 and department id in (30,50):
 
 select * 
 from hr.employees 
 where commission_pct is null and salary>=5000 and salary<=10000 and department_id in (30,50) ;
 
-6. Display employees who joined after 1st January 2008:
+--6. Display employees who joined after 1st January 2008:
 
 select * 
 from hr.employees 
 where hire_date>='01-JAN-08' ;
 
-7. Display details of employees with ID 150, 160 or 170:
+--7. Display details of employees with ID 150, 160 or 170:
 
 select * 
 from hr.employees 
 where employee_id in(150,160,170) ;
 
-8. Display employees where the first name and last name starts with S:
+--8. Display employees where the first name and last name starts with S:
 
 select * 
 from hr.employees 
 where first_name like 'S%' and last_name like 'S%';
 
-9. Display the length of first name for employees where last name contain character ‘b’ after 3rd position:
+--9. Display the length of first name for employees where last name contain character ‘b’ after 3rd position:
 
 select first_name,length(first_name) as "First Name Length",last_name from hr.employees where last_name like '___b%' ;
 
 # Second Part
 
-1) Write a query in SQL to display job Title, the difference between minimum and maximum salaries for those jobs which max salary within the range 12000 to 18000:
+--1) Write a query in SQL to display job Title, the difference between minimum and maximum salaries for those jobs which max salary within the range 12000 to 18000:
 
 select job_title,max_salary-min_salary as "Different_salary" 
 from hr.jobs 
 where max_salary>=12000 and max_salary<=18000 ;
 
-2) Display the details of the employees who have no commission percentage and whose salary is within the range 7000 to 12000 for those employees who are not working in the departments 50,30 and 80:
+--2) Display the details of the employees who have no commission percentage and whose salary is within the range 7000 to 12000 for those employees who are not working in the departments 50,30 and 80:
 
 select * 
 from hr.employees 
 where commission_pct is null and department_id not in (50,30,80) and salary between 7000 and 12000 ;
 
-3) Write a query in SQL to display the full name (first name and last name), hire date, commission percentage, email and telephone separated by '-', and salary for those employees whose salary is above 11000 and make the result set in a descending order by the full name:
+--3) Write a query in SQL to display the full name (first name and last name), hire date, commission percentage, email and telephone separated by '-', and salary for those employees whose salary is above 11000 and make the result set in a descending order by the full name:
 
 select first_name||''||last_name as "Full Name",hire_date,commission_pct,email ||'-'||phone_number,salary 
 from hr.employees 
 where salary>11000  
 order by "Full Name" desc ;
 
-4) Write a query in SQL to display the first and last name, and salary for those employees whose first name is ending with the letter “m” and they have been hired before June 5th, 2010:
+--4) Write a query in SQL to display the first and last name, and salary for those employees whose first name is ending with the letter “m” and they have been hired before June 5th, 2010:
 
 select first_name,last_name,salary 
 from hr.employees 
 where first_name like '%m' and hire_date<'05-JUN-10' ;
 
-5) Display the full name (first and last), the phone number and email separated by hyphen, and salary, for those employees whose salary is not within the range of 9000 and 17000 and commission is not null. The column headings assign with Full_Name, Contact _Details and Remuneration respectively:
+--5) Display the full name (first and last), the phone number and email separated by hyphen, and salary, for those employees whose salary is not within the range of 9000 and 17000 and commission is not null. The column headings assign with Full_Name, Contact _Details and Remuneration respectively:
 
 select first_name||' '||last_name as "Full_Name",phone_number||'-'||email as "Contact_Details",salary as "Remuneration",commission_pct 
 from hr.employees 
 where salary not in (9000,17000) and commission_pct is not null ;
 
-6) Write a query in SQL to display all the information about the department Marketing:
+--6) Write a query in SQL to display all the information about the department Marketing:
 
 select * 
 from hr.departments 
 where department_name in 'Marketing' ;
 
-7) Write a query to display data from job_history and make the result set in descending order by the epmloyee_id and ascending order by start date:
+--7) Write a query to display data from job_history and make the result set in descending order by the epmloyee_id and ascending order by start date:
 
 select * 
 from hr.job_history 
 order by employee_id desc,start_date asc ;
 
-8) Write a query to display job_id and salary of employees whose phone number starts with 515 or 590 and was hired after 2003 by sorting hire_date and salary in ascending way:
+--8) Write a query to display job_id and salary of employees whose phone number starts with 515 or 590 and was hired after 2003 by sorting hire_date and salary in ascending way:
 
 select job_id,salary 
 from hr.employees 
 where (phone_number like '515%' or phone_number like '590%') and hire_date>'01-JAN-03' 
 order by hire_date asc,salary asc;
 
-9) Write a query to display employees who were hired in 2001:
+--9) Write a query to display employees who were hired in 2001:
 
 select * 
 from hr.employees 
 where hire_date between '01-Jan-01' and '31-DEC-01' ;
 
-10) Write a query to display employees’ first and last name who were not hired in 2006 and 2007:
+--10) Write a query to display employees’ first and last name who were not hired in 2006 and 2007:
 
 select first_name,last_name 
 from hr.employees 
 where hire_date not between '01-JAN-06' and '31-DEC-07' ;
 
-11) Write a query to display email, job_id and first name of employees whose hired year was 2007 or hired month was 1:
+--11) Write a query to display email, job_id and first name of employees whose hired year was 2007 or hired month was 1:
 
 select email,job_id,first_name 
 from hr.employees 
 where (hire_date between '01-JAN-07' and '31-DEC-07') or hire_date like '%-JAN-%';
 
-12) Write a query to display details of employees who was hired after 2007 or salary is less than 10000:
+--12) Write a query to display details of employees who was hired after 2007 or salary is less than 10000:
 
 select * 
 from hr.employees 
