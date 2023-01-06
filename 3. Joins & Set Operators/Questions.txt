@@ -1,0 +1,19 @@
+--First Part:
+
+1. Display last name, job title of employees who have commission percentage and belongs to department 30.
+2. Display department name, manager name, and salary of the manager for all managers whose experience is more than 5 years.
+3. Display employee name if the employee joined before his manager.
+4. Display employee name, job title for the jobs, employee did in the past where the job was done less than six months.
+5. Display department name, average salary and number of employees with commission within the department.
+6. Display employee name and country in which he is working.
+
+--Second Part:
+
+1. Display the first promotion year for each employee.
+2. Display location, city and department name of employees who have been promoted more than once.
+3. Display minimum and maximum “hire_date” of employees work in IT and HR departments.
+4. Find difference between current date and hire dates of employees after sorting them by hire date, then show difference in days, months and years.
+5. Find which departments used to hire earliest/latest.
+6. Find the number of departments with no employee for each city.
+7. Create a category called “seasons” and find in which season most employees were hired.
+8. Find the cities of employees with average salary more than 5000.
