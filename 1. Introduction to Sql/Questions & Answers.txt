@@ -1,4 +1,4 @@
-# First Part:
+--First Part:
 --1. Display first name and last name as full name, salary, commission pct, and hire date for employees with salary less than 10000:
 
 select first_name||' '||last_name as "Full name",salary,commission_pct,hire_date 
@@ -50,7 +50,7 @@ where first_name like 'S%' and last_name like 'S%';
 
 select first_name,length(first_name) as "First Name Length",last_name from hr.employees where last_name like '___b%' ;
 
-# Second Part
+--Second Part
 
 --1) Write a query in SQL to display job Title, the difference between minimum and maximum salaries for those jobs which max salary within the range 12000 to 18000:
 
