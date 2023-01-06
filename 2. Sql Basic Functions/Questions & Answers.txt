@@ -1,4 +1,4 @@
-# First Part:
+--First Part:
 
 --1. Display employees who joined in the month of May.
 
@@ -60,7 +60,7 @@ select manager_id,count(*) number_of_emp
 from hr.employees
 group by manager_id;
 
-# Second Part
+--Second Part
 
 --1. Show minimum, average and maximum salary in last 15 years according to job id:
 
