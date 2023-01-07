@@ -1,0 +1,50 @@
+--1.Given the following table, write a query that returns the number of students whose first name is John.  String comparisons should be case sensitive.
+
+select count(*)
+from students
+where first_name = 'John';
+
+--2.Display manager ID and number of employees managed by the manager (HR schema, EMPLOYEES table)
+
+select m.manager_id,count(*)
+from hr.employees e
+left join hr.employees m
+on e.manager_id = m.employee_id
+where m.manager_id is not null
+group by m.manager_id;
+
+--3. Write a query to append “@dsa.az” to the email field of employees whose first name doesn’t start with  “M” or length of last name is greater than 6. (HR schema, EMPLOYEES table)
+
+update hr.employeees
+set email = rpad(email,length(email) + 7,'@DSA.az')
+where First_name not like 'M%' or length(last_name) > 6;
+
+--4.Write a query to find all employees where first names are in upper case. (HR schema, EMPLOYEES table)
+
+select count(*)
+from hr.employees
+where first_name = upper(first_name);
+
+--5.Display first_name, last_name, hire_date if employe’s hire_date is less than 2006 name it “Old Employees”  and other cases name it “New Employees” (HR schema, EMPLOYEES table)
+
+select first_name,last_name,hire_date,
+case
+when extract(year from hire_date) < 2006 then 'Old Employees'
+else 'New Employees'
+end isciler
+from hr.employees;
+
+--6.Display details of employees adding “0” from left to employee_id and manager_id to complete their length to 5  characters. (HR schema, EMPLOYEES table) (for example: if employee_id is “100”, it should display “00100”)
+
+select e.employee_id,lpad(e.employee_id,5,'0') new_emp_id,e.first_name,e.last_name,m.manager_id,
+lpad(m.manager_id,5,'0') new_man_id,m.first_name "Manager First Name",m.last_name "Manager Last Name"
+from hr.employees e
+left join hr.employees m
+on e.manager_id = m.employee_id;
+
+--7.Display the first word in the job title. (HR schema, JOBS table)
+
+select job_title,case
+when instr(job_title,' ') = 0 then job_title
+else substr(job_title,1,instr(job_title,' ')-1)
+end First_Word from hr.jobs;
