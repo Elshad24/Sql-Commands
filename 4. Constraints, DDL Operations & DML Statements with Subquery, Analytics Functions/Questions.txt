@@ -1,0 +1,25 @@
+--First Part:
+--1. According to the given diagram create STUDENTS , ACTIVITIES and SCHEDULE tables. (PK – PRIMARY KEY,FK – FOREIGN KEY, * - NOT NULL )
+--2. Insert data into students table from employees table.
+--3. Change phone number to ‘***’ for students with s_id > 200.
+--4. Update first name and last names of students in Upper cases.
+--5. Based on the students table populated with the following data, update the email to 'DSA' for all records whose s_id is greater than 150.
+--6. Create PROGRAMMERS table using records from EMPLOYEES where job_id contains ‘PROG’ substring
+--7. Delete records from students table where s_id is between 150 and 160.
+--8. 	a) Insert some date into SCHEDULE, then truncate and see results.
+--    	b) Drop schedule table
+--9. For any date given, write a script to find:
+--	a) The first and the last days of the next year;
+--	b) The first and the last days of the next month;
+--	c) The first and the last days of the previous month.
+--10. Create a table named “Participants” which consists of first_name, last_name and salary (have to more than 10000).
+
+--Second Part:
+
+--1. Return the name of the employee with the lowest salary in department 90.
+--2. Select the department name, employee name, and salary of all employees who work in the human resources or purchasing departments. Compute a rank for each unique salary in both departments.
+--3. Select the 3 employees with minimum salary for department id 50.
+--4. Show first name, last name, salary and previously listed employee’s salary who works in“IT_PROG” over hire date.
+--5. Display details of current job for employees who worked as IT Programmers in the past.
+--6. Make a copy of the employees table and update the salaries of the employees in the new table with the maximum salary in their departments.
+--7. Make a copy of the employees table and update the salaries of the employees in the new table with a 30 percent increase.
